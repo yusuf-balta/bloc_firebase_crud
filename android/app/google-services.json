@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "887512080399",
+    "project_id": "coflow-b5e24",
+    "storage_bucket": "coflow-b5e24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887512080399:android:99a3c5278d5ac492af037a",
+        "android_client_info": {
+          "package_name": "com.example.coflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887512080399-rouslvc5hkoa3c5iomlsltj4r6arm0es.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKrq-asmM4BkK-1DjKE0vp4J9_P13xsQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887512080399-rouslvc5hkoa3c5iomlsltj4r6arm0es.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
