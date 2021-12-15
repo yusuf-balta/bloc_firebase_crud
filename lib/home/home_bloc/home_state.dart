@@ -18,7 +18,12 @@ class SuccsesHomeState extends HomeState {
   });
 }
 
-class FailedHomeState extends HomeState {}
+class FailedHomeState extends HomeState {
+  final String error;
+  FailedHomeState({
+    required this.error,
+  });
+}
 
 class LogoutLoadingHomeState extends HomeState {}
 

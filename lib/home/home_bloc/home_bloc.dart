@@ -17,16 +17,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Future<void> homeEventControl(
       HomeEvent event, Emitter<HomeState> emit) async {
     if (event is InitialHomeEvent) {
-      List<ProductModel> listProduct = [];
       emit(LoadingHomeState());
-      final products = await homeService.getProductFromDb();
+      List<ProductModel> listProduct = [];
+      try {
+        final products = await homeService.getProductFromDb();
 
-      products.docs.forEach((doc) {
-        listProduct
-            .add(ProductModel.fromMap(doc.data() as Map<String, Object>));
-      });
-      print(listProduct);
-      emit(SuccsesHomeState(productsModel: listProduct));
+        products.docs.forEach((doc) {
+          listProduct
+              .add(ProductModel.fromMap(doc.data() as Map<String, dynamic>));
+        });
+        emit(SuccsesHomeState(productsModel: listProduct));
+      } catch (e) {
+        emit(FailedHomeState(error: e.toString()));
+      }
     } else if (event is LogoutHomeEvent) {
       emit(LogoutLoadingHomeState());
       try {

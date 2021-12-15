@@ -29,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     homeBloc = HomeBloc();
     homeBloc.add(InitialHomeEvent());
-    isLoading = true;
     productsModel = [];
+    isLoading = false;
     isDialogActive = false;
   }
 
@@ -50,9 +50,13 @@ class _HomeScreenState extends State<HomeScreen> {
           setState(() {
             isLoading = true;
           });
-        } else if (state is SuccsesHomeState) {
-          productsModel = state.productsModel;
+        } else if (state is FailedHomeState) {
           setState(() {
+            isLoading = false;
+          });
+        } else if (state is SuccsesHomeState) {
+          setState(() {
+            productsModel = state.productsModel;
             isLoading = false;
           });
         } else if (state is LogoutLoadingHomeState) {
@@ -63,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
         } else if (state is LogoutSuccsesHomeState) {
           if (isDialogActive) {
             Navigator.pop(context);
-            isDialogActive == false;
+            isDialogActive = false;
           }
           showDialog(
               context: context,
